@@ -56,30 +56,142 @@ void linked_list_append(node *head, int val){
 
 /* your implementation goes here */
 
-void linked_list_insert(node *head, int val, int index){
-
+void linked_list_insert(node *head, int val, int index)
+{
+    if ((index>head->count) || index<0)
+    {
+        return;
+    }
+    int id = 0;
+    node *before = head;
+    node *current = head;
+    while (id <= index)
+    {
+        before = current;
+        current = current->next;
+        id++;
+    }
+    node *new_node = (node *)malloc(sizeof(node));
+    new_node->value = val;
+    new_node->next = current;
+    before->next = new_node;
+    head->count++;
 }
 
-void linked_list_delete(node *head, int index){
-
+void linked_list_delete(node *head, int index)
+{
+    if ((index>=head->count) || index<0)
+    {
+        return;
+    }
+    int id = 0;
+    node *before = head;
+    node *current = head->next;
+    while (id < index)
+    {
+        before = current;
+        current = current->next;
+        id++;
+    }
+    before->next = current->next;
+    head->count--;
 }
 
-void linked_list_remove(node *head, int val){
+void linked_list_remove(node *head, int val)
+{
+    node *before = head;
+    node *current = head->next;
+    while (current->value != val)
+    {
+        before = current;
+        if (current->next==NULL)
+        {
+           return;
+        }
+        current = current->next;
+    }
 
+    before->next = current->next;
+    head->count--;
 }
 
-void linked_list_remove_all(node *head, int val){
-
+void linked_list_remove_all(node *head, int val)
+{
+    node *before = head;
+    node *current = head->next;
+    while (1)
+    {
+        if(current->value==val){
+            before->next = current->next;
+            current = current->next;
+            head->count--;
+        }
+        else{
+            before = current;
+            if (current->next==NULL)
+            {
+                return;
+            }
+            current = current->next;
+        }
+    }
 }
 
 int linked_list_get(node *head, int index){
-    return 0;
+    int id = 0;
+    node *before = head;
+    node *current = head->next;
+    if (index >= head->count)
+    {
+        return -0x80000000;
+    }
+    
+    while (id<index)
+    {
+        before = current;
+        current = current->next;
+        id++;
+    }
+    return current->value;
 }
 
 int linked_list_search(node *head, int val){
-    return 0;
+    int id = 0;
+    node *before = head;
+    node *current = head->next;
+
+    while (current->value!=val)
+    {
+        before=current;
+        if (current->next==NULL)
+        {
+            return -1;
+        }
+        current = current->next;
+        id++;
+    }
+    return id;
+    
 }
 
 node *linked_list_search_all(node *head, int val){
-    return linked_list_init();
+    int id=0;
+    node *before = head;
+    node *current = head->next;
+    node *result_head = linked_list_init();
+    while (1)
+    {
+        if (current->value==val)
+        {
+            linked_list_append(result_head,id);
+        }
+        before = current;
+        if (current->next==NULL)
+        {
+            break;
+        }
+        current = current->next;
+        id++;
+    }
+    return result_head;
 }
