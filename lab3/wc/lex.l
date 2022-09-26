@@ -10,9 +10,12 @@
     int lines = 0;
 %}
 letter [a-zA-Z]
+vowel [aeiouAEIOU]
+non [b-df-hj-np-tv-zB-DF-HJ-NP-TV-Z]
 
 %%
-{letter}+ { words++; chars+=strlen(yytext); }
+{non}{letter}* {chars+=strlen(yytext);}
+{vowel}{letter}* { words++; chars+=strlen(yytext); }
 \n { chars++; lines++; }
 . { chars++; }
 

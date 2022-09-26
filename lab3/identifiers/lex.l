@@ -4,15 +4,20 @@
 
     // global variables
     int identifiers = 0;
-    int lines = 0;
+    int lines = 1;
 %}
 letter [a-zA-Z]
 letter_ {letter}|_
 digit [0-9]
+identifiers {letter_}({letter_}|{digit})* 
+quotation ['"]
 
 %%
-{letter_}({letter_}|{digit})* { identifiers++; printf("line %d: %s\n", lines, yytext);} 
-\n {}
+char|int|return|while|if|else {}
+{quotation}{identifiers}{quotation} {}
+{digit}{identifiers} {}
+{identifiers} { identifiers++; printf("line %d: %s\n", lines, yytext);} 
+\n {lines++;}
 [\t\r ]+ { /* does nothing when seeing white spaces except new line */ }
 . { /* a final rule that matches when seeing any character but new line */ }
 <<EOF>> { printf("There are %d occurrences of valid identifiers\n", identifiers); yyterminate(); }
