@@ -4,6 +4,7 @@
 %}
 %token INT
 %token ADD SUB MUL DIV
+%token LP RP
 %%
 Calc: /* to allow empty input */
     | Exp { printf("= %d\n", $1); }
