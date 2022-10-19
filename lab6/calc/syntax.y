@@ -3,6 +3,8 @@
     void yyerror(const char*);
 %}
 %token INT ADD SUB MUL DIV LP RP
+%left ADD SUB
+%left MUL DIV
 
 %%
 Calc: /* to allow empty input */
