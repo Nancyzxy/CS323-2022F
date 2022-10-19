@@ -473,8 +473,8 @@ static const yytype_int8 yypact[] =
      means the default is an error.  */
 static const yytype_uint8 yydefact[] =
 {
-       2,    10,     0,     0,     3,     4,     7,     0,     1,     0,
-       0,     0,     0,    11,     5,     6,     8,     9
+       2,    11,     0,     0,     3,     4,     7,     0,     1,     0,
+       0,     0,     0,    10,     5,     6,     8,     9
 };
 
   /* YYPGOTO[NTERM-NUM].  */
@@ -523,7 +523,7 @@ static const yytype_uint8 yyr1[] =
 static const yytype_uint8 yyr2[] =
 {
        0,     2,     0,     1,     1,     3,     3,     1,     3,     3,
-       1,     3
+       3,     1
 };
 
 
@@ -1229,8 +1229,8 @@ yyreduce:
 #line 1230 "syntax.tab.c" /* yacc.c:1646  */
     break;
 
-  case 11:
-#line 20 "syntax.y" /* yacc.c:1646  */
+  case 10:
+#line 19 "syntax.y" /* yacc.c:1646  */
     { (yyval) = (yyvsp[-1]); }
 #line 1236 "syntax.tab.c" /* yacc.c:1646  */
     break;

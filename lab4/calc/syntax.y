@@ -16,7 +16,8 @@ Exp: Factor
 Factor: Term
     | Factor MUL Term { $$ = $1 * $3; }
     | Factor DIV Term { $$ = $1 / $3; }
-Term: INT
+Term: LP Exp RP { $$ = $2; }
+    |INT
     ;
 %%
 void yyerror(const char *s) {
