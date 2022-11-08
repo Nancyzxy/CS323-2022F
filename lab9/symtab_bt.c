@@ -1,12 +1,6 @@
-#include "symtab.h"
+#include "symtab_bt.h"
 
-/*
- * symbol table type, binary tree impl
- */
-struct symtab {
-    entry entry;
-    struct symtab *left, *right;
-};
+
 
 // ************************************************************
 //    Your implementation goes here

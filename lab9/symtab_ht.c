@@ -1,14 +1,10 @@
-#include "symtab.h"
+#include "symtab_ht.h"
 
 /*
  * symbol table type, hash table (separate chaining) impl
  */
 #define TABLE_SIZE 0x1003
-struct _node {
-    entry entry;
-    struct _node *next;
-};
-typedef struct _node *symtab[TABLE_SIZE];
+
 
 // ************************************************************
 //    Your implementation goes here

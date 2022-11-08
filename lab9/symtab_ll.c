@@ -1,12 +1,4 @@
-#include "symtab.h"
-
-/*
- * symbol table type, linked list impl
- */
-struct symtab {
-    entry entry;
-    struct symtab *next;
-};
+#include "symtab_ll.h"
 
 // ************************************************************
 //    Your implementation goes here
