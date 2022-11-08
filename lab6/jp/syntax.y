@@ -40,8 +40,7 @@ Member:
     ;
 Array:
       LB RB
-    | LB Values RB
-    | LB Values RB RB error { puts("extra close, recovered"); }
+    | LB Values RB error {puts("Comma after the close, recovered");}
     | LB Values RC error { puts("unmatched right bracket, recovered"); }
     | LB Values error { puts("no right bracket ], recovered"); }
     ;
