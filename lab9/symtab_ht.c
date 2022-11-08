@@ -1,8 +1,6 @@
 #include "symtab_ht.h"
 
-/*
- * symbol table type, hash table (separate chaining) impl
- */
+
 #define TABLE_SIZE 0x1003
 
 

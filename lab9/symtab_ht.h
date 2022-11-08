@@ -14,11 +14,16 @@ typedef struct entry {
     VAL_T value;
 } entry;
 
+/*
+ * symbol table type, hash table (separate chaining) impl
+ */
+
 struct _node {
     entry entry;
     struct _node *next;
 };
- typedef struct _node* symtab;
+
+typedef struct _node* symtab;
 
 void entry_init(entry *self, char *key, VAL_T value){
     sprintf(self->key, "%s", key);
