@@ -13,6 +13,10 @@ bttest: clean
 	$(CC) symtab_bt.c $(CFLAGS)
 	@echo "Running test for binary tree implementation..."
 	@python3 test.py ||:
+all: 
+	@make lltest
+	@make httest
+	@make bttest
 clean:
 	@rm -f *.o *.out *.so
 .PHONY: lltest httest bttest

@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "symtab_bt.h": "c",
+        "symtab_ht.h": "c",
+        "symtab_ll.h": "c"
+    }
+}
